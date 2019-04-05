@@ -1,0 +1,86 @@
+\documentclass[a4paper,10.5pt]{jarticle}
+
+\usepackage[truedimen,top=25truemm,bottom=30truemm,hmargin=25truemm]{geometry}
+\usepackage{calc}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{pxrubrica}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+
+\begin{document}
+
+%
+%	表紙を必要としないもの用のTeX雛形（作成：@oz4point5）
+%	おおむね社会学会の論文用の書式に従っている
+%
+%	文字組他に関しては以下のウェブページを参考にした
+%	https://texwiki.texjp.org/?geometry
+%
+
+\makeatletter
+\newcount\@chars\newcount\@lines
+\@chars=40                      % 1行の文字数
+\@lines=40                      % 1ページの行数
+\newdimen\@kanjiskip
+\@kanjiskip=\dimexpr(\textwidth-1zw*\@chars)/\numexpr\@chars-1
+\newdimen\@@kanjiskip
+\@@kanjiskip=\dimexpr\@kanjiskip/10
+\setlength{\@tempdima}{1pt*\ratio{\dimexpr\textheight/\@lines}{\baselineskip}}
+\renewcommand{\baselinestretch}{\strip@pt\@tempdima}\selectfont
+\kanjiskip=\@kanjiskip plus \@@kanjiskip minus \@@kanjiskip
+\parindent=\dimexpr 1zw+2truept
+\parindent=\dimexpr\parindent+\@kanjiskip
+\makeatother
+
+%
+%	タイトルなど
+%
+
+\title{Pythonチュートリアル}
+\author{@oz4point5}
+\date{}
+\maketitle
+
+このpdfは@oz4point5が自習用にhttps://docs.python.org/ja/3/tutorial/をまとめたものです。著作権は元著者に帰属します。\\
+\\
+Pythonは、
+\begin{itemize}
+\item 効率的な高レベルデータ構造
+\item シンプルで効果的なオブジェクト指向プログラミング機構
+\item 洗練された文法
+\item 動的なデータ型付け
+\item インタープリタ
+\item スクリプティグや高速アプリケーション開発（Rapid Application Development: RAD）に理想的
+\end{itemize}
+
+\tableofcontents
+
+%
+%	以下本文
+%
+
+\newpage
+\section{やる気を高めよう}
+Pythonは、
+\begin{itemize}
+\item 簡単に利用できるが、本物のプログラミング言語であり、シェルスプリクトやバッチファイルよりも多くの機構があり、大きなプログラムの開発にも適しています。
+\item プログラムをモジュールに分割して、他のPythonプログラムで再利用できます。
+\item インタプリタ言語です。コンパイルやリンクの必要がないので、プログラムを開発する際にかなりの時間を節約できます。
+\item 名前は"モンティパイソンの空飛ぶサーカス"から取られている。
+\end{itemize}
+
+\section{Pythonインタプリタを使う}
+\subsection{インタプリタを起動する}
+\begin{description}
+\item[インタプリタを起動する]~\\
+\begin{verbatim}
+  python3.7
+\end{verbatim}
+\item[インタプリタを終了する]~\\
+ファイル終端文字（Ctrl-D, Ctrl-Z）を１次プロンプトへ入力または、
+\begin{verbatim}
+  quit()
+\end{verbatim}
+\end{description}
+
+\end{document}
